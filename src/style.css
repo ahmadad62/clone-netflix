@@ -9,6 +9,9 @@ body {
   background-color: #000;
   color: #fff;
 }
+body img {
+  max-width: 100%;
+}
 body header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -125,4 +128,67 @@ body div.splash div.content div form div button {
   padding: 11px 26px;
   background: #e50914;
   color: #fff;
+}
+body section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 46px;
+  padding: 70px 35px;
+  align-items: center;
+}
+body section .texts h1 {
+  font-size: 3.125rem;
+  margin-bottom: 8px;
+}
+body section .texts p {
+  font-size: 1.625rem;
+}
+body section .media {
+  position: relative;
+}
+body section .s1 img {
+  width: 400px;
+}
+body section .s1 video {
+  width: 293px;
+  position: absolute;
+  top: 63px;
+  left: 52px;
+}
+body section:nth-child(even) div.texts {
+  order: 2;
+}
+body section .media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body section .media .download {
+  border: 2px solid #666;
+  border-radius: 15px;
+  padding: 10px;
+  height: 5.7em;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  width: 70%;
+  left: 50%;
+  margin-left: -35%;
+  background-color: #000;
+  gap: 15px;
+  grid-template-columns: -webkit-max-content 1fr -webkit-max-content;
+  grid-template-columns: max-content 1fr max-content;
+}
+body section .media .download .cover {
+  height: 4.5em;
+  width: auto;
+}
+body section .media .download .down-text h3 {
+  font-size: 1em;
+}
+body section .media .download .down-text p {
+  color: #0071eb;
+  font-size: 0.9em;
 }/*# sourceMappingURL=style.css.map */
