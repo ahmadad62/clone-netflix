@@ -8,13 +8,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #000;
   color: #fff;
-}
-body img {
-  max-width: 100%;
+  width: 100vw;
 }
 body header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
   padding: 26px 56px;
   position: absolute;
   z-index: 5;
@@ -25,24 +24,25 @@ body header a.logo {
 }
 body header a.logo svg {
   fill: #e50914;
-  height: 37px;
+  height: clamp(17px, 2.5vw, 37px);
 }
 body header div + div {
   text-align: right;
 }
-body header a.button {
+body header .button {
   display: inline-block;
   background-color: #e50914;
   color: #fff;
   text-decoration: none;
   padding: 7px 17px;
   border-radius: 3px;
+  font-size: inherit;
 }
-body header div.select {
+body header .select {
   display: inline-block;
   margin-right: 30px;
 }
-body header div.select svg {
+body header .select svg {
   height: 20px;
   fill: #fff;
   position: absolute;
@@ -73,25 +73,27 @@ body div.splash div.background img {
   opacity: 0.6;
 }
 body div.splash div.content {
-  max-width: 655px;
+  width: 50%;
   position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   inset: 0;
-  left: 50%;
-  margin-left: -327.5px;
   display: grid;
   align-items: center;
   text-align: center;
 }
 body div.splash div.content div h1 {
-  font-size: 3.125rem;
+  font-size: clamp(1.6rem, 4vw, 3.125rem);
   font-weight: bold;
 }
 body div.splash div.content div h2 {
-  font-size: 1.625rem;
+  font-size: clamp(1.125rem, 4vw, 1.625rem);
   font-weight: normal;
 }
 body div.splash div.content div h3 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 4vw, 1.2rem);
   font-weight: normal;
 }
 body div.splash div.content div form {
@@ -137,7 +139,7 @@ body section {
   align-items: center;
 }
 body section .texts h1 {
-  font-size: 3.125rem;
+  font-size: clamp(1.75rem, 4vw, 3.125rem);
   margin-bottom: 8px;
 }
 body section .texts p {
@@ -191,4 +193,89 @@ body section .media .download .down-text h3 {
 body section .media .download .down-text p {
   color: #0071eb;
   font-size: 0.9em;
+}
+body .faq {
+  padding: 70px 30px;
+}
+body .faq h1 {
+  font-size: clamp(1.75rem, 4vw, 3.125rem);
+  text-align: center;
+  margin-bottom: 40px;
+}
+body .faq .questions {
+  max-width: 635px;
+  margin: 0 auto;
+  font-size: 1.625rem;
+}
+body .faq .questions .question {
+  position: relative;
+  background-color: #303030;
+  margin-bottom: 4px;
+}
+body .faq .questions .question input {
+  display: none;
+}
+body .faq .questions .question input:checked ~ .answer {
+  padding: 30px 30px;
+  max-height: 600px;
+  margin-bottom: 5px;
+}
+body .faq .questions .question input:checked ~ .header svg {
+  transform: rotate(180deg);
+}
+body .faq .questions .question .header {
+  padding: 20px 30px;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+  display: block;
+}
+body .faq .questions .question .header svg {
+  width: 30px;
+  height: 30px;
+  right: 30px;
+  top: 10px;
+  position: absolute;
+  transform: rotate(45deg);
+  transition: all 0.2s ease;
+}
+body .faq .questions .question .answer {
+  padding: 0px 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+body .faq .questions form {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  margin-top: 20px;
+}
+body .faq .questions form span {
+  position: absolute;
+  left: 12px;
+  top: 19px;
+  z-index: 3;
+  color: #ddd;
+  transition: all 0.15s ease;
+  pointer-events: none;
+}
+body .faq .questions form input {
+  padding: 15px 10px;
+  font-size: 1.2rem;
+  width: 100%;
+}
+body .faq .questions form input:focus {
+  padding-top: 19px;
+  padding-bottom: 11px;
+}
+body .faq .questions form input:focus ~ span {
+  top: 4px;
+  font-size: 0.8rem;
+}
+body .faq .questions form div button {
+  font-size: 1.625rem;
+  padding: 11px 26px;
+  background: #e50914;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

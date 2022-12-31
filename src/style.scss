@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 * {
     padding: 0;
     margin: 0;
@@ -8,13 +10,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #000;
     color: #fff;
-    img{
-        max-width: 100%;
-    }
+    width: 100vw;
+    // img {
+    //     max-width: 100%;
+    // }
 
     header {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: max-content 1fr;
         padding: 26px 56px;
         position: absolute;
         z-index: 5;
@@ -25,7 +28,7 @@ body {
 
             svg {
                 fill: #e50914;
-                height: 37px;
+                height: clamp(17px, 2.5vw, 37px);
             }
         }
 
@@ -33,16 +36,17 @@ body {
             text-align: right;
         }
 
-        a.button {
+        .button {
             display: inline-block;
             background-color: #e50914;
             color: #fff;
             text-decoration: none;
             padding: 7px 17px;
             border-radius: 3px;
+            font-size: inherit;
         }
 
-        div.select {
+        .select {
             display: inline-block;
             margin-right: 30px;
 
@@ -88,28 +92,35 @@ body {
         }
 
         div.content {
-            max-width: 655px;
+            width: 50%;
             position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
             inset: 0;
-            left: 50%;
-            margin-left: -327.5px; //calc(-655/2)px;
+            // left: 50%;
+            // // margin-left: -327.5px; //calc(-655/2)px;
+            // // transform: translate(-50%,-50%);
             display: grid;
             align-items: center;
             text-align: center;
 
             div {
                 h1 {
-                    font-size: 3.125rem;
+                    font-size: clamp(1.6rem, 4vw, 3.125rem);
                     font-weight: bold;
                 }
 
                 h2 {
-                    font-size: 1.625rem;
+                    font-size: clamp(1.125rem, 4vw, 1.625rem);
+                    ;
                     font-weight: normal;
                 }
 
                 h3 {
-                    font-size: 1.2rem;
+                    font-size: clamp(1rem, 4vw, 1.2rem);
+                    ;
                     font-weight: normal;
                 }
 
@@ -166,25 +177,29 @@ body {
         padding: 70px 35px;
         align-items: center;
 
-        .texts{
+        .texts {
             h1 {
-                font-size: 3.125rem;
+                font-size: clamp(1.75rem, 4vw, 3.125rem);
                 margin-bottom: 8px;
             }
+
             p {
                 font-size: 1.625rem;
             }
 
         }
-        .media{
+
+        .media {
             position: relative;
-            
+
         }
-        .s1{
-            img{
+
+        .s1 {
+            img {
                 width: 400px;
             }
-            video{
+
+            video {
                 width: 293px;
                 position: absolute;
                 top: 63px;
@@ -192,14 +207,17 @@ body {
             }
 
         }
-        &:nth-child(even) div.texts{
+
+        &:nth-child(even) div.texts {
             order: 2;
         }
-        .media{
+
+        .media {
             display: flex;
             align-items: center;
-           justify-content: center;
-            .download{
+            justify-content: center;
+
+            .download {
                 border: 2px solid #666;
                 border-radius: 15px;
                 padding: 10px;
@@ -210,20 +228,23 @@ body {
                 position: absolute;
                 bottom: 20px;
                 width: 70%;
-                 left: 50%;
-                 margin-left: -35%;
+                left: 50%;
+                margin-left: -35%;
                 background-color: #000;
                 gap: 15px;
                 grid-template-columns: max-content 1fr max-content;
-                .cover{
+
+                .cover {
                     height: 4.5em;
                     width: auto;
                 }
-                .down-text{
-                    h3{
+
+                .down-text {
+                    h3 {
                         font-size: 1em;
                     }
-                    p{
+
+                    p {
                         color: #0071eb;
                         font-size: 0.9em;
                     }
@@ -231,9 +252,122 @@ body {
             }
 
         }
-        
-        
+
+
     }
 
+    .faq {
+        padding: 70px 30px;
+
+        h1 {
+            font-size: clamp(1.75rem, 4vw, 3.125rem);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .questions {
+            max-width: 635px;
+            margin: 0 auto;
+
+            font-size: 1.625rem;
+
+            .question {
+                position: relative;
+                background-color: #303030;
+                margin-bottom: 4px;
+
+                input {
+                    display: none;
+
+                    &:checked {
+
+                        ~.answer {
+                            padding: 30px 30px;
+                            max-height: 600px;
+                            margin-bottom: 5px;
+                        }
+
+                        ~.header svg {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                .header {
+                    padding: 20px 30px;
+                    border-bottom: 1px solid #000;
+                    cursor: pointer;
+                    display: block;
+
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                        right: 30px;
+                        top: 10px;
+                        position: absolute;
+                        transform: rotate(45deg);
+                        transition: all 0.2s ease;
+                    }
+                }
+
+                .answer {
+                    padding: 0px 30px;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: all 0.2s ease;
+                }
+            }
+
+            form {
+                position: relative;
+                display: grid;
+                grid-template-columns: 1fr max-content;
+                margin-top: 20px;
+
+                span {
+                    position: absolute;
+                    left: 12px;
+                    top: 19px;
+                    z-index: 3;
+                    color: #ddd;
+                    transition: all 0.15s ease;
+                    pointer-events: none;
+
+                }
+
+                input {
+                    padding: 15px 10px;
+                    font-size: 1.2rem;
+                    width: 100%;
+
+                    &:focus {
+                        padding-top: 19px;
+                        padding-bottom: 11px;
+
+                        ~span {
+                            top: 4px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+
+                div {
+                    button {
+                        font-size: 1.625rem;
+                        padding: 11px 26px;
+                        background: #e50914;
+                        color: #fff;
+                    }
+                }
+            }
+
+        }
+    }
 
 }
+
+// @include breakpoint(mobile) {
+//     body {
+//         border: 10px solid #ff0000;
+//     }
+//  } 
