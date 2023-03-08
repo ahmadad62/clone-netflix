@@ -12,9 +12,9 @@
   <p><img src="https://github.com/ahmadad62/clone-netflix/blob/main/DE-en-20221219-popsignuptwoweeks-perspective_alpha_website_large%20(1).jpg" alt="Netflix Clone Screenshot"></p>
   <h2>Acknowledgments</h2>
   <ul><li>The inspiration for this project came from the Netflix website</li>
-    <li>The movie data and images were obtained from <a href="https://www.themoviedb.org/" target="_new">The Movie DB API</a>
+   
     </li></ul><h2>License</h2><p>This project is licensed under the MIT License - see the <a href="LICENSE" target="_new">LICENSE</a>
-  file for details.</p><h2>Author</h2><ul><li>Ahmad (<a href="mailto:ahmad@example.com" target="_new">ahmad@example.com</a>)</li>
+  file for details.</p><h2>Author</h2><ul><li>Ahmad Alinaghian (<a href="mailto:ahmad@example.com" target="_new">ahmadalinaghian@yahoo.com</a>)</li>
   </ul>
   <h2>Conclusion</h2><p>Feel free to use this project as a starting point for your own HTML and CSS projects, and don't hesitate to make improvements and add your own personal touches. Thanks for checking out my Netflix Clone project!</p></div>
 </div>
